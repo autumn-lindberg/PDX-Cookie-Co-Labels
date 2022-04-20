@@ -10,22 +10,13 @@
   $hashed_pw = password_hash($postPW, PASSWORD_DEFAULT);
 
   /*server config */
-  $env_array = getenv();
-  foreach ($env_array as $key=>$value) {
-    if($key == "CLEARDB_SERVERNAME") {
-      $serverName = $value;
-    }
-    if($key == "CLEARDB_UN") {
-      $userName = $value;
-    }
-    if($key == "CLEARDB_PW") {
-      $pw = $value;
-    }
-    if($key == "CLEARDB_DB") {
-      $db = $value;
-    }
-      echo gettype($key) . " => $key => $value <br />";
-  }
+  $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+
+  $serverName = $url["host"];
+  $userName = $url["user"];
+  $pw = $url["pass"];
+  $db = substr($url["path"], 1);
+
   echo $serverName . "<br>";
   echo $userName . "<br>";
   echo $pw . "<br>";
