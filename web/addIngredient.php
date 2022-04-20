@@ -10,10 +10,10 @@ else {
   $ingredientDesc = $_POST["new_ingredient_description"];
 
   /*config settings*/
-  $serverName = getenv('CLEARDB_SERVERNAME');
-  $userName = getenv('CLEARDB_UN');
-  $pw = getenv('CLEARDB_PW');
-  $db = getenv('CLEARDB_DB');
+  $serverName = getenv("CLEARDB_SERVERNAME");
+  $userName = getenv("CLEARDB_UN");
+  $pw = getenv("CLEARDB_PW");
+  $db = getenv("CLEARDB_DB");
 
   $CURRENTUSER = $_SESSION["session_username"];
 

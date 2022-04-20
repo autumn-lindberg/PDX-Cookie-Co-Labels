@@ -9,11 +9,12 @@
   $postPW = $_POST["psw"];
   $hashed_pw = password_hash($postPW, PASSWORD_DEFAULT);
 
+  var_dump(getenv());
   /*server config*/
-  $serverName = getenv('CLEARDB_SERVERNAME');
-  $userName = getenv('CLEARDB_UN');
-  $pw = getenv('CLEARDB_PW');
-  $db = getenv('CLEARDB_DB');
+  $serverName = getenv("CLEARDB_SERVERNAME");
+  $userName = getenv("CLEARDB_UN");
+  $pw = getenv("CLEARDB_PW");
+  $db = getenv("CLEARDB_DB");
 
   $userTableName = $CURRENTUSER . "_user_info";
   $labelsTableName = $CURRENTUSER . "_labels";

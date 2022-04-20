@@ -8,11 +8,11 @@
   $postPW = $_POST["psw"];
 
   /*DB CONFIG*/
-  $serverName = getenv('CLEARDB_SERVERNAME');
-  $userName = getenv('CLEARDB_UN');
-  $pw = getenv('CLEARDB_PW');
-  $db = getenv('CLEARDB_DB');
-
+  $serverName = getenv("CLEARDB_SERVERNAME");
+  $userName = getenv("CLEARDB_UN");
+  $pw = getenv("CLEARDB_PW");
+  $db = getenv("CLEARDB_DB");
+  
   /*check if email matches any records*/
   $userTableConnection = new mysqli($serverName, $userName, $pw, $db);
   if($userTableConnection->connect_errno) {

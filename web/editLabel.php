@@ -12,10 +12,11 @@
    $labelName = $_POST["labelName"];
    $newTitle = $_POST["ingredient_title"];
 
-   $serverName = getenv('CLEARDB_SERVERNAME');
-   $userName = getenv('CLEARDB_UN');
-   $pw = getenv('CLEARDB_PW');
-   $db = getenv('CLEARDB_DB');
+   /* config vars */
+   $serverName = getenv("CLEARDB_SERVERNAME");
+   $userName = getenv("CLEARDB_UN");
+   $pw = getenv("CLEARDB_PW");
+   $db = getenv("CLEARDB_DB");
 
    $CURRENTUSER = $_SESSION["session_username"];
 
