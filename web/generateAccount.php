@@ -75,7 +75,6 @@
 
   $createLabelsTable = "CREATE TABLE " . $labelsTableName . " (label_id INT PRIMARY KEY AUTO_INCREMENT, label_name VARCHAR(50), id_list VARCHAR(50000));";
   $createIngredientsTable = "CREATE TABLE " . $ingredientsTableName . " (ingredient_id INT PRIMARY KEY AUTO_INCREMENT, ingredient_name VARCHAR(50), ingredient_contents VARCHAR(50000), milk VARCHAR(10), egg VARCHAR(10), fish VARCHAR(10), shellfish VARCHAR(10), tree_nuts VARCHAR(10), wheat VARCHAR(10), peanuts VARCHAR(10), soy VARCHAR(10), tree_nut_name VARCHAR(50));";
-  $firstTimeTableCreation->query($createUserInfoTable);
   $firstTimeTableCreation->query($createLabelsTable);
   $firstTimeTableCreation->query($createIngredientsTable);
 
