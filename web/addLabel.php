@@ -11,10 +11,10 @@
    $appendString = $_POST["appendString"];
    $newTitle = $_POST["new_ingredient_title"];
 
-   $serverName = $_ENV["CLEARDB_SERVERNAME"];
-   $userName = $_ENV["CLEARDB_UN"];
-   $pw = $_ENV["CLEARDB_PW"];
-   $db = $_ENV["CLEARDB_DB"];
+   $serverName = getenv('CLEARDB_SERVERNAME');
+   $userName = getenv('CLEARDB_UN');
+   $pw = getenv('CLEARDB_PW');
+   $db = getenv('CLEARDB_DB');
 
    $CURRENTUSER = $_SESSION["session_username"];
 
