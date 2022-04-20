@@ -1,0 +1,128 @@
+.navHeight {
+  height : 15vh;
+}
+.navColor {
+  background-color: #fbb8bc;
+}
+.logoHeight {
+  height: 75px;
+  width: 75px;
+}
+.navText {
+  font-family: 'Hepta Slab', serif;
+  font-size: 2rem;
+}
+.navText:hover {
+  color: white !important;
+}
+.titleContainer {
+  width: 20vw;
+  min-width: 350px;
+}
+.titleText {
+  font-family: 'Big Shoulders Stencil Display', cursive;
+  font-weight: 900;
+  font-size: 4rem;
+}
+.titleLink {
+  color: white !important;
+  text-decoration: none !important;
+}
+.bodyBanner {
+  background-color: #ec91d8;
+  height: 70vh;
+}
+.contentBox {
+  background-color: #ffaaea;
+  max-width: 1200px;
+}
+.loginContainer {
+  height: 85%;
+  background-color: #ffbeef;
+}
+.loginBox {
+  width: 55%;
+  min-width: 425px;
+}
+.emailHeight {
+  height: 25%;
+}
+.pwHeight {
+  height: 40%;
+}
+.skewEmailText {
+  transform: skewY(5deg) translateY(-2rem);
+}
+.skewEmailBox {
+  transform: skewY(-10deg) translateY(-2rem);
+  height: 4rem;
+}
+.pwBox1 {
+  transform: skewY(5deg);
+  height: 4rem;
+}
+.skewPwBox {
+  transform: skewY(10deg);
+  height: 4rem;
+}
+.buttonsBox {
+  min-width: 250px;
+}
+.passwordLabel {
+  font-family: 'Emblema One', cursive;
+  font-size: 3rem;
+  text-align: right !important;
+}
+.loginButtonsText {
+  font-family: 'Emblema One', cursive;
+  font-size: 3rem;
+}
+.pwAgain {
+  font-family: 'Emblema One', cursive;
+  font-size: 2rem;
+  transform: translateY(1rem) translateX(5rem) skewY(10deg);
+}
+.boxWidth {
+  width: 90%;
+}
+.pswReqs {
+  font-family: 'Hepta Slab', serif;
+  font-size: 2rem;
+  color: black;
+  text-align: right !important;
+}
+.createAccountButton {
+  transform: translateX(-2rem) skewY(10deg);
+  background-color: #ffd3da;
+  border: none !important;
+}
+.submitBtn {
+  background-color: #ffd3da;
+  transform: skewY(-10deg);
+}
+ .footerColor {
+   background-color: #ffd3da;
+   max-width: 1200px;
+ }
+ .footerBanner {
+   height: 15vh;
+   background-color: #ec91d8;
+ }
+ .addressBox {
+   width: 90%;
+   font-family: 'Hepta Slab', serif;
+   font-size: 1.2rem;
+   color: black;
+ }
+ pre: hover {
+   color: white;
+ }
+ .addressBox: hover {
+   color: white;
+ }
+ .insta_link_box {
+   width: 15vh;
+ }
+.instaSize {
+  font-size: 5rem;
+}

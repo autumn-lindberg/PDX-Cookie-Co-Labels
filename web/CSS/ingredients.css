@@ -1,0 +1,101 @@
+body {
+  font-family: 'Hepta Slab', serif;
+}
+.encodedJSON {
+  display: none;
+}
+.navHeight {
+  height : 15vh;
+}
+.navColor {
+  background-color: #fbb8bc;
+}
+.logoHeight {
+  height: 75px;
+  width: 75px;
+}
+.navText {
+  font-family: 'Hepta Slab', serif;
+  font-size: 2rem;
+}
+.navText:hover {
+  color: white !important;
+}
+.titleContainer {
+  width: 20vw;
+  min-width: 350px;
+}
+.titleText {
+  font-family: 'Big Shoulders Stencil Display', cursive;
+  font-weight: 900;
+  font-size: 4rem;
+}
+.titleLink {
+  color: white !important;
+  text-decoration: none !important;
+}
+.bodyBanner {
+  background-color: #ec91d8;
+  height: 85vh;
+}
+.contentBox {
+  background-color: #ffaaea;
+  max-width: 1200px;
+}
+.tableHeight {
+  height: 85vh !important;
+  overflow-y: scroll !important;
+}
+.welcomeText {
+  font-family: 'Hepta Slab', serif;
+  font-size: 2rem;
+}
+.searchBoxHeight {
+  height: 5em;
+  background-color: #98D2EB;
+}
+.searchBox {
+  width: 70%;
+  height: 5rem;
+}
+.addLabel {
+  width: 30%;
+  background-color: #212529;
+  color: #fff;
+  border-color: #212529;
+  height: 5rem;
+}
+.addLabel:hover {
+  color: black !important;
+  background-color:white !important;
+}
+.ingredientsArea {
+  background-color: #fbb8bc;
+}
+.ingredientsColumn {
+  width: 65%;
+  font-size: 2rem;
+}
+.interFaceWidth {
+  width: 80%;
+}
+.editColumn {
+  width: 10%;
+}
+.editButton {
+  font-size: 3rem;
+}
+.editButton:hover {
+  color: 212529;
+  background-color: #fff;
+}
+.dismissWidth, .saveWidth {
+  width: 48% !important;
+}
+.treeNutNameWidth {
+  width: 20%;
+}
+.treeNutInputSize {
+  font-size: 2rem !important;
+  height: 3rem !important;
+}

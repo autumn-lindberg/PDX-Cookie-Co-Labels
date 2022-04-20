@@ -1,0 +1,112 @@
+.navHeight {
+  height : 15vh;
+}
+.navColor {
+  background-color: #fbb8bc;
+}
+.logoHeight {
+  height: 75px;
+  width: 75px;
+}
+.navText {
+  font-family: 'Hepta Slab', serif;
+  font-size: 2rem;
+}
+.navText:hover {
+  color: white !important;
+}
+.titleContainer {
+  width: 20vw;
+  min-width: 350px;
+}
+.titleText {
+  font-family: 'Big Shoulders Stencil Display', cursive;
+  font-weight: 900;
+  font-size: 4rem;
+}
+.titleLink {
+  color: white !important;
+  text-decoration: none !important;
+}
+.bodyBanner {
+  background-color: #ec91d8;
+  height: 70vh;
+}
+.contentBox {
+  background-color: #ffaaea;
+  max-width: 1200px;
+}
+.loginContainer {
+  height: 85%;
+  background-color: #ffbeef;
+}
+.loginBox {
+  width: 60%;
+  min-width: 425px;
+}
+.skewEmailText {
+  transform: translateX(8rem) skewY(-5deg);
+}
+.skewEmailBox {
+  transform: skewY(10deg);
+  height: 4rem;
+}
+.skewPwBox {
+  transform: skewY(-10deg);
+  height: 4rem;
+}
+.boxWidth {
+  width: 90%;
+}
+.unContainerHeight {
+  height: 40%;
+}
+.pwContainerHeight {
+  height: 40%;
+}
+.buttonsBox {
+  width: 40%;
+}
+.loginButtonsText {
+  font-family: 'Emblema One', cursive;
+  font-size: 3rem;
+}
+.pwAgain {
+  font-family: 'Emblema One', cursive;
+  font-size: 1rem;
+  transform: translateY(1rem) skewY(-10deg);
+}
+.createAccountButton {
+  transform: skewY(-10deg);
+  background-color: #ffd3da;
+}
+.submitBtn {
+  background-color: #ffd3da;
+  transform: skewY(-10deg);
+}
+ .footerColor {
+   background-color: #ffd3da;
+   max-width: 1200px;
+ }
+ .footerBanner {
+   height: 15vh;
+   background-color: #ec91d8;
+ }
+ .addressBox {
+   width: 90%;
+   font-family: 'Hepta Slab', serif;
+   font-size: 1.5rem;
+   color: black;
+ }
+ pre: hover {
+   color: white;
+ }
+ .addressBox: hover {
+   color: white;
+ }
+ .insta_link_box {
+   width: 15%;
+ }
+.instaSize {
+  font-size: 5rem;
+}
