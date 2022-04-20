@@ -26,6 +26,10 @@
     }
       echo gettype($key) . " => $key => $value <br />";
   }
+  echo $serverName . "<br>";
+  echo $userName . "<br>";
+  echo $pw . "<br>";
+  echo $db . "<br>";
 
   $userTableName = $CURRENTUSER . "_user_info";
   $labelsTableName = $CURRENTUSER . "_labels";
