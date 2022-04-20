@@ -70,7 +70,7 @@ ingredientsObjects.forEach((e) => {
   if(e.tree_nuts == "true") {
     allergensString += "tree nuts(";
     allergensString += e.tree_nut_name;
-    allergensString += "),";
+    allergensString += "), ";
   }  //tree_nuts
   if(e.wheat == "true") {
     allergensString += "wheat, ";
@@ -83,7 +83,7 @@ ingredientsObjects.forEach((e) => {
   }  //soy
 
   // yank off ending comma and space
-  allergensString  = allergensString.slice(0, -1)
+  allergensString  = allergensString.slice(0, -2)
 
   ////////// CREATE TABLE STRUCTURE CREATE TABLE STRUCTURE //////////
   ////////// CREATE TABLE STRUCTURE CREATE TABLE STRUCTURE //////////

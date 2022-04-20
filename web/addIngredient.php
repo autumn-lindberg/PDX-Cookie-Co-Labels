@@ -85,7 +85,7 @@ else {
   $updateIngredientsTable->execute();
   $connection->close();
 
-  //header("Location: ingredients.php");
+  header("Location: ingredients.php");
 }
 ?>
 <!DOCTYPE html>
