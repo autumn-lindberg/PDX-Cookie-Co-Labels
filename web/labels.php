@@ -7,10 +7,12 @@
   else {
     echo "<div class='encodedJSON'>";
     /*config settings*/
-    $serverName = getenv("CLEARDB_SERVERNAME");
-    $userName = getenv("CLEARDB_UN");
-    $pw = getenv("CLEARDB_PW");
-    $db = getenv("CLEARDB_DB");
+    $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+
+    $serverName = $url["host"];
+    $userName = $url["user"];
+    $pw = $url["pass"];
+    $db = substr($url["path"], 1);
 
     $CURRENTUSER = $_SESSION["session_username"];
 
