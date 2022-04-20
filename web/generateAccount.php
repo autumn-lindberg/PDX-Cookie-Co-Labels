@@ -9,7 +9,10 @@
   $postPW = $_POST["psw"];
   $hashed_pw = password_hash($postPW, PASSWORD_DEFAULT);
 
-  var_dump(getenv());
+  $envs = getenv();
+  for($envs as $varaible) {
+    echo $variable . "<br>";
+  }
   /*server config*/
   $serverName = getenv("CLEARDB_SERVERNAME");
   $userName = getenv("CLEARDB_UN");
