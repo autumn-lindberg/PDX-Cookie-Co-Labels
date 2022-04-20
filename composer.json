@@ -3,6 +3,6 @@
 
   },
   "require-dev": {
-    "heroku/heroku-buildpack-php": "heroku-php-apache2"
+    "heroku/heroku-buildpack-php": "*"
   }
 }
