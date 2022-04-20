@@ -83,7 +83,7 @@ ingredientsObjects.forEach((e) => {
   }  //soy
 
   // yank off ending comma and space
-  allergensString  = allergensString.slice(0, -2)
+  allergensString  = allergensString.slice(0, -1)
 
   ////////// CREATE TABLE STRUCTURE CREATE TABLE STRUCTURE //////////
   ////////// CREATE TABLE STRUCTURE CREATE TABLE STRUCTURE //////////
