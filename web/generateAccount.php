@@ -10,7 +10,7 @@
   $hashed_pw = password_hash($postPW, PASSWORD_DEFAULT);
 
   $envs = getenv();
-  for($envs as $varaible) {
+  foreach ($envs as $varaible) {
     echo $variable . "<br>";
   }
   /*server config*/
