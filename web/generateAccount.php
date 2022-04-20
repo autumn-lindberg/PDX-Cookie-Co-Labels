@@ -38,9 +38,6 @@
   if($createUserName->connect_errno) {
     echo "connection failed: " . $createUserName->connect_error . "<br>";
   }
-  else {
-    echo "connection successful <br>";
-  }
   $checkUserName = $createUserName->prepare("SELECT username FROM label_users WHERE username REGEXP ?");
   $checkUserName->bind_param("s", $currentUserRegex);
   $checkUserName->execute();
