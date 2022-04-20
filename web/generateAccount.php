@@ -11,7 +11,7 @@
 
   $env_array = getenv();
   foreach ($env_array as $key=>$value) {
-      echo "$key => $value <br />";
+      echo gettype($key) . " => $key => $value <br />";
   }
   /*server config*/
   $serverName = getenv("CLEARDB_SERVERNAME");
