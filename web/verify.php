@@ -15,6 +15,9 @@
   $pw = $url["pass"];
   $db = substr($url["path"], 1);
 
+  $active_group = 'default';
+  $query_builder = TRUE;
+
   /*check if email matches any records*/
   $userTableConnection = new mysqli($serverName, $userName, $pw, $db);
   if($userTableConnection->connect_errno) {
@@ -31,7 +34,7 @@
   $userTableConnection->close();
 
   if(empty($myData)) {
-    echo "<script>parent.self.location='./clearData.php';</script>";
+    //echo "<script>parent.self.location='./clearData.php';</script>";
   }
   else {
   /*USERNAME EXISTS*/
