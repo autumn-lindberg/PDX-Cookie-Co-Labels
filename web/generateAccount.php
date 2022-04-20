@@ -20,11 +20,6 @@
   $active_group = 'default';
   $query_builder = TRUE;
 
-  echo $serverName . "<br>";
-  echo $userName . "<br>";
-  echo $pw . "<br>";
-  echo $db . "<br>";
-
   $userTableName = $CURRENTUSER . "_user_info";
   $labelsTableName = $CURRENTUSER . "_labels";
   $ingredientsTableName = $CURRENTUSER . "_ingredients";
@@ -447,7 +442,7 @@
   $_SESSION["session_username"] = $CURRENTUSER;
 
   /*redirect to labels.php*/
-  header("Location: ./sendEmail.php");
+  header("Location: ./index.php");
   exit;
 
 
