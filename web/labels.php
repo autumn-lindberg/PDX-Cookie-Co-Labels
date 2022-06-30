@@ -1,18 +1,11 @@
 <?php
+  require 'db_config.php';
   session_start();
   if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
       header("Location: index.php");
       exit;
   }
   else {
-    echo "<div class='encodedJSON'>";
-    /*config settings*/
-    $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
-
-    $serverName = $url["host"];
-    $userName = $url["user"];
-    $pw = $url["pass"];
-    $db = substr($url["path"], 1);
 
     $CURRENTUSER = $_SESSION["session_username"];
 
@@ -32,26 +25,27 @@
     $data = $res->fetch_all(MYSQLI_ASSOC);
     $grabLabels->close();
 
-    /*GET ALL DATA FROM CORRESPONDING INGREDIENTS*/
-      $entryIndex = 0;
+    /*grab data, and make it JSON*/
+    $json = json_encode($data);
+    file_put_contents("JSON/labels.json", $json);
 
-      /*prepare one statement for multiple uses*/
-      $grabIngredients = new mysqli($serverName, $userName, $pw, $db);
-      if($grabIngredients->connect_errno) {
-        echo "connection failed: " . $grabIngredients->connect_error . "<br>";
-      }
-      $grabIngredientsPrep = $grabIngredients->prepare("SELECT ingredient_id, ingredient_name, ingredient_contents, milk, egg, fish, shellfish, tree_nuts, wheat, peanuts, soy, tree_nut_name FROM " . $ingredientsTableName);
-      $grabIngredientsPrep->execute();
-      $myRes = $grabIngredientsPrep->get_result();
-      $myData = $myRes->fetch_all(MYSQLI_ASSOC);
-      echo json_encode($myData);
+    /*GET ALL DATA FROM INGREDIENTS*/
+     $entryIndex = 0;
 
-      $grabIngredients->close();
-      $entryIndex = $entryIndex + 1;
+     $grabIngredients = new mysqli($serverName, $userName, $pw, $db);
+     if($grabIngredients->connect_errno) {
+       echo "connection failed: " . $grabIngredients->connect_error . "<br>";
+     }
+     $grabIngredientsPrep = $grabIngredients->prepare("SELECT ingredient_id, ingredient_name, ingredient_contents, milk, egg, fish, shellfish, tree_nuts, wheat, peanuts, soy, tree_nut_name FROM " . $ingredientsTableName);
+     $grabIngredientsPrep->execute();
+     $myRes = $grabIngredientsPrep->get_result();
+     $myData = $myRes->fetch_all(MYSQLI_ASSOC);
+     $grabIngredients->close();
 
-    /*grab data, slap it in a div, and make it JSON*/
-    echo json_encode($data);
-    echo "</div>";
+     $json = json_encode($myData);
+     file_put_contents("JSON/ingredients.json", $json);
+
+     $entryIndex = $entryIndex + 1;
   }
 ?>
 <!doctype html>
@@ -81,27 +75,27 @@
   <!--NAVIGATION-->
   <nav class="navbar navbar-expand-lg navColor navHeight">
     <div class="container-fluid d-flex align-stretch">
-      <a class="navbar-brand order-2 h-75" href="./index.php">
-        <img src="IMG/cookies.png" style="width:75px">
+      <a class="navbar-brand order-2 h-75 squareAspect" href="./index.php">
+        <img src="IMG/cookies.png" class="logoHeight">
       </a>
-      <button class="navbar-toggler order-1 toggleButtonColor btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-        <span class="navbar-toggler-icon"></span>
+      <button class="navbar-toggler order-1 toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar" aria-expanded="true">
+        <i class="bi-list hamburger"></i>
       </button>
-      <div class="collapse navbar-collapse order-3 flex-grow-1" id="collapsibleNavbar">
+      <div class="collapse navbar-collapse order-3 flex-grow-1 mobileNavBackground" id="collapsibleNavbar">
         <ul class="navbar-nav">
-          <li class="nav-item ps-4 pe-3">
+          <li class="nav-item ps-4 pe-3 mobileNavAdjust">
             <a class="nav-link" href="labels.php">
               <h2 class="navText text-dark">LABELS</h2>
             </a>
           </li>
-          <li class="nav-item ps-3 pe-4">
+          <li class="nav-item ps-3 pe-4 mobileNavAdjust">
             <a class="nav-link" href="ingredients.php">
               <h2 class="navText text-dark">INGREDIENTS</h2>
             </a>
           </li>
-          <li class="nav-item ps-5">
+          <li class="nav-item ps-5 mobileNavAdjust logoutbtn">
             <form action="./clearData.php" method="POST">
-              <button name="logout" type="submit" class="btn btn-dark"><h3>LOGOUT</h3></button>
+              <button name="logout" type="submit" class="btn btn-dark logout"><h3>LOGOUT</h3></button>
             </form>
           </li>
         </ul>
@@ -117,7 +111,7 @@
   <div class="container-fluid bodyBanner">
     <div class="container contentBox h-100 d-flex flex-column"> <!--CONTENT BOX-->
 
-      <div class="p-3 mx-auto welcomeBox">
+      <div class="p-3 mx-auto welcomeBox mb-1">
         <h1 class="welcomeText">
         <?php
           echo $CURRENTUSER;
@@ -127,7 +121,7 @@
       </div>
 <!--SEARCH BOX AND ADD LABEL MODAL-->
       <div class="d-flex flex-row mx-auto interFaceWidth">
-        <form class="modalForm w-100 d-flex flex-row" id="modalForm" action="./addLabel.php" method="POST">
+        <form class="modalForm w-100 d-flex flex-row mb-3" id="modalForm" action="./addLabel.php" method="POST">
           <div class="me-2 searchBox">
             <input type="text" class="form-control border border-light searchBoxHeight" placeholder="SEARCH...">
           </div>
@@ -141,7 +135,35 @@
                   </h3>
                 </div>
                 <div class="modal-body modalBodyHeight newLabel">
+                  <input class="form-control mt-1 mb-4 mx-auto border border-dark modalSearch newLabelSearch" type="text" placeholder="Search...">
+                  <div class="d-flex justify-content-center mx-auto titlesBoxWidth">
+                    <div class="d-flex justify-content-center w-50 pe-5">
+                      <p class="ms-2 me-2 mt-2 mb-2">Ingredients in New Label</p>
+                    </div>
+                    <div class="d-flex justify-content-center w-50 pe-5">
+                      <p class="ms-2 me-2 mt-2 mb-2">All Ingredients</p>
+                    </div>
+                  </div>
+                  <div class="d-flex d-inline-flex w-100 newLabelTablesBox">
+                    <div class="modalScroll border border-secondary border-rounded mx-auto mt-3 mb-3">
+                      <table class="table">
+                        <thead class="editModalTablelHeader">
+                          <tr>
+                            <th scope="col">Ingredient Name</th>
+                            <th scope="col"></th>
+                            <th scope="col" class="editModalAddHeader">Remove</th>
+                          </tr>
+                        </thead>
+                        <tbody class="editModalResults">
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="modalScroll modalScrollAll border border-secondary border-rounded mx-auto mt-3 mb-3">
+                      <table class="table">
 
+                      </table>
+                    </div>
+                  </div>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-danger dismissWidth mx-auto" data-bs-dismiss="modal">CANCEL</button>
@@ -155,18 +177,19 @@
       </form>
     </div>
 
-      <div class="interFaceWidth mx-auto mb-4 flex-grow-1 ingredientsArea tableHeight">
+      <div class="interFaceWidth mx-auto mb-4 flex-grow-1 ingredientsArea tableHeight border border-dark">
         <!--GRAB INGREDIENTS AND INFO, DISPLAY THEM HERE-->
         <table class="table table-striped table-responsive w-100 h-100 mb-0">
-        <thead class="resultsHead">
-          <tr>
-            <th scope="col">Label</th>
-            <th scope="col" class="printWidth">Print</th>
-            <th scope="col">Edit</th>
-          </tr>
-        </thead>
-        <tbody class="resultsBody">
-        </tbody>
+            <thead class="resultsHead">
+              <tr>
+                <th scope="col">Label</th>
+                <th scope="col" class="printWidth text-center">Print</th>
+                <th scope="col" class="text-center hideHeader">Edit</th>
+                <th scope="col" class="text-center hideHeader">Delete</th>
+              </tr>
+            </thead>
+            <tbody class="resultsBody">
+            </tbody>
         </table>
         <script src="JS/labels.js"></script>
       </div>

@@ -1,18 +1,30 @@
+.cookie {
+  height: 7vh;
+}
+.minusIcon {
+
+}
+.toggler {
+  border: 1px solid black;
+}
+.hamburger {
+  color: black;
+  font-size: 2.5rem;
+}
+.hamburger:active, .hamburger:focus {
+  color: white !important;
+}
 body {
   font-family: 'Hepta Slab', serif;
 }
-.encodedJSON {
-  display: none;
-}
 .navHeight {
-  height : 15vh;
+  height : 10vh;
 }
 .navColor {
   background-color: #fbb8bc;
 }
 .logoHeight {
-  height: 75px;
-  width: 75px;
+  height: 8vh;
 }
 .navText {
   font-family: 'Hepta Slab', serif;
@@ -20,6 +32,13 @@ body {
 }
 .navText:hover {
   color: white !important;
+}
+.logout {
+  font-size: 2.5rem;
+}
+.logout:hover {
+  color: #212529;
+  background-color: #fff;
 }
 .titleContainer {
   width: 20vw;
@@ -36,7 +55,7 @@ body {
 }
 .bodyBanner {
   background-color: #ec91d8;
-  height: 85vh;
+  height: 90vh;
 }
 .contentBox {
   background-color: #ffaaea;
@@ -117,6 +136,21 @@ body {
 .modalBody {
   height:65vh;
 }
+.fontAdjust {
+  font-family: Wire One, Hepta Slab, serif, sans-serif;
+  font-size: 2rem;
+  vertical-align: middle;
+}
+.plusMinus {
+  font-size: 4rem;
+}
+.fontButton:hover {
+  border: 1px solid white;
+  color: black;
+}
+.hiddenFont {
+  display:none;
+}
 .editModalAddButton {
   font-size: 2rem;
 }
@@ -124,12 +158,17 @@ body {
   color: #212529;
   background-color: #fff;
 }
-.editModalRemoveButton {
+.addIcon {
   font-size: 2rem;
 }
-.editModalRemoveButton:hover {
-  color: #212529;
-  background-color: #fff;
+.addIcon:hover {
+  color: #28a745;
+}
+.minusIcon {
+  font-size: 2rem;
+}
+.minusIcon:hover {
+  color: #dc3545;
 }
 .editModalAddHeader {
   width: 10%;
@@ -149,7 +188,7 @@ body {
 .ingredientsArea {
   background-color: #fbb8bc;
 }
-.ingredientsColumn {
+.labelsColumn {
   width: 65%;
   font-size: 2rem;
 }
@@ -159,11 +198,8 @@ body {
 .editColumn {
   width: 10%;
 }
-.editButton {
-  font-size: 3rem;
-}
-.printButton {
-  font-size: 3rem;
+.mainTableButton {
+  font-size: 2.5rem !important;
 }
 .printColumn {
   width: 10%;
@@ -171,14 +207,79 @@ body {
 .printWidth {
   width: 10% !important;
 }
-.printButton:hover {
-  color: #212529;
-  background-color: #fff;
+.deleteColumn {
+  width: 10%;
 }
-.editButton:hover {
+.mainTableButton:hover {
   color: #212529;
   background-color: #fff;
 }
 .dismissWidth, .saveWidth {
   width: 48% !important;
+}
+
+@media (max-width: 1200px) {
+  .titleContainer {
+    display: none !important;
+  }
+}
+@media (max-width: 990px) {
+  .hideHeader {
+    display: none;
+  }
+  .editColumn {
+    display: none;
+  }
+  .deleteColumn {
+    display: none;
+  }
+  .interfaceWidth {
+    width: 90%;
+  }
+  .searchBox {
+    width: 100% !important;
+  }
+  .addLabel {
+    display: none;
+  }
+  .mobileNavBackground {
+    background-color: #ec91d8;
+  }
+  .treeNutNameWidth {
+    width: 40%;
+    min-width: 200px;
+  }
+  .mobileNavAdjust {
+    padding-left: 2rem !important;
+  }
+  .logoutbtn {
+    padding-bottom: 1rem;
+  }
+  .printWidth {
+    text-align: left !important;
+  }
+  .labelsColumn {
+    font-size: 1.75rem;
+  }
+}
+@media (max-width: 750px) {
+  .labelsColumn {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 500px) {
+  .labelsColumn {
+    font-size: 1rem;
+  }
+  .allergensColumn {
+    font-size: .75rem;
+  }
+  .printWidth {
+    text-align: center !important;
+  }
+}
+@media (max-width: 400px) {
+  .addLabel {
+    font-size: .6rem;
+  }
 }

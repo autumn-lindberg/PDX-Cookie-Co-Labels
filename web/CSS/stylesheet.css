@@ -1,3 +1,16 @@
+.cookie {
+  height: 7vh;
+}
+.toggler {
+  border: 1px solid black;
+}
+.hamburger {
+  color: black;
+  font-size: 2.5rem;
+}
+.hamburger:active, .hamburger:hover, .hamburger:focus {
+  color: white !important;
+}
 .navHeight {
   height : 15vh;
 }
@@ -87,6 +100,7 @@
  .footerColor {
    background-color: #ffd3da;
    max-width: 1200px;
+   height: 15vh !important;
  }
  .footerBanner {
    height: 15vh;
@@ -109,4 +123,116 @@
  }
 .instaSize {
   font-size: 5rem;
+}
+.footerTextBox {
+  height: 10vh;
+  overflow: hidden;
+}
+
+@media (max-width: 1030px) {
+  .loginBox {
+    width: 50%;
+    min-width: 400px;
+  }
+}
+@media (max-width: 990px) {
+  .navHeight: {
+    height: 10vh;
+  }
+  .bodyBanner {
+    height: 100vh;
+  }
+  .skewEmailText {
+    transform: translateX(1rem) skewY(-3deg);
+    padding-bottom: 1rem;
+  }
+  .skewEmailBox {
+    transform: skewY(7deg);
+  }
+  .unContainerHeight {
+    height: 35%;
+  }
+  .skewPwBox {
+    transform: skewY(-7deg);
+  }
+  .loginBox {
+    height: 40vh !important;
+  }
+  .buttonsBox {
+    height: 40vh !important;
+    width: auto !important;
+  }
+  .loginContainer {
+    align-content: start !important;
+  }
+  .titleContainer {
+    display: none !important;
+  }
+  .hideHeader {
+    display: none;
+  }
+  .editColumn {
+    display: none;
+  }
+  .deleteColumn {
+    display: none;
+  }
+  .interfaceWidth {
+    width: 90%;
+  }
+  .addLabel {
+    font-size: .75rem;
+  }
+  .mobileNavBackground {
+    background-color: #ec91d8;
+  }
+  .treeNutNameWidth {
+    width: 40%;
+    min-width: 200px;
+  }
+  .mobileNavAdjust {
+    padding-left: 2rem !important;
+  }
+  .logoutbtn {
+    padding-bottom: 1rem;
+  }
+  .footerTextBox {
+    font-size: 1.25rem;
+  }
+  .instaSize {
+    font-size: 4rem;
+  }
+}
+@media (max-width: 540px) {
+  .skewEmailText {
+    font-size: 2.5rem;
+  }
+  .loginContainer {
+    width: 90% !important;
+  }
+  .loginBox {
+    min-width: 350px;
+  }
+  .passwordText {
+    font-size: 2.5rem;
+  }
+  .createAccountButton {
+    font-size: 2rem;
+  }
+  .addressBox {
+    width: 70%;
+  }
+}
+@media (max-width: 500px) {
+  .ingredientsColumn {
+    font-size: 1.5rem;
+  }
+  .allergensColumn {
+    font-size: .75rem;
+  }
+}
+@media (max-width: 400px) {
+  .addLabel {
+    font-size: .6rem;
+  }
 }

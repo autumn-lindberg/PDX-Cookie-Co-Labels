@@ -1,5 +1,5 @@
 <?php
-
+  require 'db_config.php';
   /*FIRST TIME ACCOUNT CREATION*/
   /*preg match recognizes regex pattern*/
   /*it stores the matches in an array $postUNcopy */
@@ -8,14 +8,6 @@
   $CURRENTUSER = $postUNcopy[0];
   $postPW = $_POST["psw"];
   $hashed_pw = password_hash($postPW, PASSWORD_DEFAULT);
-
-  /*server config */
-  $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
-
-  $serverName = $url["host"];
-  $userName = $url["user"];
-  $pw = $url["pass"];
-  $db = substr($url["path"], 1);
 
   $active_group = 'default';
   $query_builder = TRUE;
@@ -161,7 +153,7 @@
   $wheat = "true";
   $peanuts = "false";
   $soy = "true";
-  $tree_nut_name = "";
+  $tree_nut_name = "shared facility";
   $populateLabelsWithDefaults->execute();
 
   $ingredientName = "Reese's Pieces";
@@ -174,7 +166,7 @@
   $wheat = "false";
   $peanuts = "true";
   $soy = "true";
-  $tree_nut_name = "";
+  $tree_nut_name = "shared facility";
   $populateLabelsWithDefaults->execute();
 
   $ingredientName = "Semi-Sweet Chips";
@@ -265,7 +257,7 @@
   $wheat = "false";
   $peanuts = "false";
   $soy = "false";
-  $tree_nut_name = "";
+  $tree_nut_name = "hazelnuts";
   $populateLabelsWithDefaults->execute();
 
   $ingredientName = "Cosmic Brownie";

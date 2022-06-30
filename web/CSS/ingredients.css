@@ -1,18 +1,27 @@
+.cookie {
+  height: 7vh;
+}
+.toggler {
+  border: 1px solid black;
+}
+.hamburger {
+  color: black;
+  font-size: 2.5rem;
+}
+.hamburger:active, .hamburger:hover, .hamburger:focus {
+  color: white !important;
+}
 body {
   font-family: 'Hepta Slab', serif;
 }
-.encodedJSON {
-  display: none;
-}
 .navHeight {
-  height : 15vh;
+  height : 10vh;
 }
 .navColor {
   background-color: #fbb8bc;
 }
 .logoHeight {
-  height: 75px;
-  width: 75px;
+  height: 8vh;
 }
 .navText {
   font-family: 'Hepta Slab', serif;
@@ -21,9 +30,15 @@ body {
 .navText:hover {
   color: white !important;
 }
+.logout {
+  font-size: 2.5rem;
+}
+.logout:hover {
+  color: #212529;
+  background-color: #fff;
+}
 .titleContainer {
-  width: 20vw;
-  min-width: 350px;
+  width: 350px;
 }
 .titleText {
   font-family: 'Big Shoulders Stencil Display', cursive;
@@ -34,9 +49,12 @@ body {
   color: white !important;
   text-decoration: none !important;
 }
+.width93 {
+  width: 93%;
+}
 .bodyBanner {
   background-color: #ec91d8;
-  height: 85vh;
+  height: 90vh;
 }
 .contentBox {
   background-color: #ffaaea;
@@ -82,11 +100,21 @@ body {
 .editColumn {
   width: 10%;
 }
+.deleteColumn {
+  width: 10%;
+}
 .editButton {
-  font-size: 3rem;
+  font-size: 2.5rem;
 }
 .editButton:hover {
-  color: 212529;
+  color: #212529;
+  background-color: #fff;
+}
+.deleteButton {
+  font-size: 2.5rem;
+}
+.deleteButton:hover {
+  color: #212529;
   background-color: #fff;
 }
 .dismissWidth, .saveWidth {
@@ -98,4 +126,53 @@ body {
 .treeNutInputSize {
   font-size: 2rem !important;
   height: 3rem !important;
+}
+
+@media (max-width: 1200px) {
+  .titleContainer {
+    display: none !important;
+  }
+}
+@media (max-width: 990px) {
+  .hideHeader {
+    display: none;
+  }
+  .editColumn {
+    display: none;
+  }
+  .deleteColumn {
+    display: none;
+  }
+  .interfaceWidth {
+    width: 90%;
+  }
+  .addLabel {
+    font-size: .75rem;
+  }
+  .mobileNavBackground {
+    background-color: #ec91d8;
+  }
+  .treeNutNameWidth {
+    width: 40%;
+    min-width: 200px;
+  }
+  .mobileNavAdjust {
+    padding-left: 2rem !important;
+  }
+  .logoutbtn {
+    padding-bottom: 1rem;
+  }
+}
+@media (max-width: 400px) {
+  .addLabel {
+    font-size: .6rem;
+  }
+}
+@media (max-width: 500px) {
+  .ingredientsColumn {
+    font-size: 1.5rem;
+  }
+  .allergensColumn {
+    font-size: .75rem;
+  }
 }

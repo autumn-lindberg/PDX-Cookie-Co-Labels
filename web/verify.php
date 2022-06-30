@@ -1,4 +1,5 @@
 <?php
+  require 'db_config.php';
   if ($_POST['submitbutton'] == 'create') {
     header("Location: create-account.php");
     exit;
@@ -6,14 +7,6 @@
   /*PHP VERIFY EMAIL CODE*/
   $postUN = $_POST["username"];
   $postPW = $_POST["psw"];
-
-  /*DB CONFIG*/
-  $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
-
-  $serverName = $url["host"];
-  $userName = $url["user"];
-  $pw = $url["pass"];
-  $db = substr($url["path"], 1);
 
   $active_group = 'default';
   $query_builder = TRUE;
@@ -34,7 +27,7 @@
   $userTableConnection->close();
 
   if(empty($myData)) {
-    //echo "<script>parent.self.location='./clearData.php';</script>";
+    echo "<script>parent.self.location='./clearData.php';</script>";
   }
   else {
   /*USERNAME EXISTS*/

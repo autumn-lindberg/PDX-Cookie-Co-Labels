@@ -35,10 +35,10 @@
       <a class="navbar-brand order-2 h-75" href="./index.php">
         <img src="IMG/cookies.png" class="logoHeight">
       </a>
-      <button class="navbar-toggler order-1 toggleButtonColor btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-        <span class="navbar-toggler-icon"></span>
+      <button class="navbar-toggler toggler order-1 hamburger" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar" aria-expanded="true">
+        <i class="bi-list hamburger"></i>
       </button>
-      <div class="collapse navbar-collapse order-3 flex-grow-1" id="collapsibleNavbar">
+      <div class="collapse navbar-collapse order-3 flex-grow-1 mobileNavBackground" id="collapsibleNavbar">
         <ul class="navbar-nav">
           <li class="nav-item ps-4 pe-3">
             <a class="nav-link" href="index.php">
@@ -63,14 +63,14 @@
   <!--MAIN CONTAINER-->
   <div class="container-fluid bodyBanner">
     <div class="container contentBox h-100 d-flex"> <!--CONTENT BOX-->
-      <form class="container d-flex w-75 align-self-center loginContainer justify-content-center" action="./generateAccount.php" method="POST">
+      <form class="container d-flex w-75 align-self-center flex-wrap loginContainer justify-content-center" action="./generateAccount.php" method="POST">
         <!--login box-->
-        <div class="h-auto align-middle loginBox d-flex flex-column align-self-center">
-          <div class="form-group mx-auto w-75 mt-2 mb-3 d-flex flex-column emailHeight">
+        <div class="h-auto loginBox d-flex flex-column justify-content-center">
+          <div class="form-group mx-auto w-75 mt-2 d-flex flex-column emailHeight">
             <label for="email_input" class="form-label loginButtonsText skewEmailText align-items-center">EMAIL</label>
             <input type="text" class="form-control skewEmailBox boxWidth align-items-center" id="email_input" placeholder="Enter Email..." name="email">
           </div>
-          <div class="form-group mx-auto w-75 pwHeight">
+          <div class="form-group mx-auto pwHeight">
             <label for="password_input" class="form-label passwordLabel pb-2">PASSWORD</label>
             <input type="password" class="form-control pwBox1 boxWidth mb-2" id="password_input" placeholder="Enter Password..." name="psw">
             <label for="pw_again" class="form-label pwAgain mb-1">Once More!</label>
@@ -78,11 +78,11 @@
           </div>
         </div>
         <!--buttons box-->
-        <div class="h-100 buttonsBox d-flex flex-column justify-content-center">
-          <div class="h-25 mt-3 mb-4 ms-3 me-3">
+        <div class="buttonsBox d-flex flex-column justify-content-center">
+          <div class="h-25 mt-3 mb-4 ms-3 me-3 reqsBox">
             <h2 class="pswReqs">Password must contain 8 or more total characters, and include at least one number</h2>
           </div>
-          <button type="submit" class="loginButtonsText createAccountButton p-2 mt-4 mb-4 h-auto">CREATE<br>ACCOUNT</button>
+          <button type="submit" class="loginButtonsText createAccountButton p-2 mt-4 h-auto">CREATE<br>ACCOUNT</button>
         </div>
 
       </form>

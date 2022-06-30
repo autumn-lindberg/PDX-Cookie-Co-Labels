@@ -4,6 +4,16 @@
 .navColor {
   background-color: #fbb8bc;
 }
+.toggler {
+  border: 1px solid black;
+}
+.hamburger {
+  color: black ;
+  font-size: 2.5rem;
+}
+.hamburger:active, .hamburger:hover, .hamburger:focus {
+  color: white !important;
+}
 .logoHeight {
   height: 75px;
   width: 75px;
@@ -39,19 +49,21 @@
 .loginContainer {
   height: 85%;
   background-color: #ffbeef;
+  width: 75%;
 }
 .loginBox {
-  width: 55%;
-  min-width: 425px;
+  width: 60%;
+  min-width: 410px;
 }
 .emailHeight {
   height: 25%;
 }
 .pwHeight {
-  height: 40%;
+  width: 75% !important;
 }
 .skewEmailText {
   transform: skewY(5deg) translateY(-2rem);
+  font-size: 2.75rem !important;
 }
 .skewEmailBox {
   transform: skewY(-10deg) translateY(-2rem);
@@ -66,12 +78,14 @@
   height: 4rem;
 }
 .buttonsBox {
-  min-width: 250px;
+  width: 40%;
+  height: 100%;
 }
 .passwordLabel {
   font-family: 'Emblema One', cursive;
-  font-size: 3rem;
+  font-size: 2.5rem;
   text-align: right !important;
+  transform: skewY(5deg) translateX(3rem);
 }
 .loginButtonsText {
   font-family: 'Emblema One', cursive;
@@ -80,14 +94,17 @@
 .pwAgain {
   font-family: 'Emblema One', cursive;
   font-size: 2rem;
-  transform: translateY(1rem) translateX(5rem) skewY(10deg);
+  transform: translateY(.5rem) translateX(6rem) skewY(10deg);
 }
 .boxWidth {
   width: 90%;
 }
+.reqsBox {
+  min-width: 200px;
+}
 .pswReqs {
   font-family: 'Hepta Slab', serif;
-  font-size: 2rem;
+  font-size: 1.75rem;
   color: black;
   text-align: right !important;
 }
@@ -95,6 +112,7 @@
   transform: translateX(-2rem) skewY(10deg);
   background-color: #ffd3da;
   border: none !important;
+  margin-bottom: 2rem;
 }
 .submitBtn {
   background-color: #ffd3da;
@@ -107,6 +125,7 @@
  .footerBanner {
    height: 15vh;
    background-color: #ec91d8;
+   min-height: 130px;
  }
  .addressBox {
    width: 90%;
@@ -125,4 +144,87 @@
  }
 .instaSize {
   font-size: 5rem;
+}
+
+
+@media (max-width: 1200px) {
+  .titleText {
+    display: none;
+  }
+  .pswReqs {
+    font-size: 1.5rem;
+  }
+  .loginButtonsText {
+    font-size: 2.75rem;
+  }
+}
+@media (max-width: 1100px) {
+  .loginButtonsText {
+    font-size: 2.25rem;
+  }
+}
+@media (max-width: 990px) {
+  .bodyBanner {
+    height: 140vh !important;
+  }
+  .loginBox {
+    margin-top:  1rem;
+    width: 80% !important;
+  }
+  .buttonsBox {
+    align-self: baseline !important;
+    height: auto !important;
+    width: 60%;
+  }
+  .mobileNavBackground {
+    background-color: #ec91d8;
+  }
+}
+@media (max-width: 850px) {
+  .reqsBox {
+    transform: translateX(-2rem)
+  }
+  .pswReqs {
+    font-size: 1.25rem;
+  }
+  .loginButtonsText {
+    font-size: 2rem;
+  }
+}
+@media (max-width: 600px) {
+  .loginContainer {
+    width: 100% !important;
+  }
+}
+@media (max-width: 400px) {
+  .createAccountButton {
+    font-size: 2rem !important;
+    transform: translateX(.5rem) skewY(-3deg);
+  }
+  .skewEmailText {
+    font-size: 2rem !important;
+    transform: translateX(5rem);
+  }
+  .skewEmailBox {
+    height: 3rem;
+    transform: skewY(7deg) translateX(1rem);
+  }
+  .passwordLabel {
+    transform: translateX(2rem);
+    font-size: 2rem;
+  }
+  .passwordText {
+    font-size: 2rem;
+  }
+  .skewPwBox {
+    height: 3rem;
+    transform: skewY(-7deg) translateX(1rem);
+  }
+  .pwBox1 {
+    transform: translateX(1rem);
+    height: 3rem;
+  }
+  .pwAgain {
+    transform: skewY(-7deg) translateX(1rem);
+  }
 }

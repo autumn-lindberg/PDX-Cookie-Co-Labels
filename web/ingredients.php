@@ -1,17 +1,11 @@
 <?php
+  require 'db_config.php';
   session_start();
   if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
       header("Location: index.php");
       exit;
   }
   else {
-    /*config settings*/
-    $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
-
-    $serverName = $url["host"];
-    $userName = $url["user"];
-    $pw = $url["pass"];
-    $db = substr($url["path"], 1);
 
     $CURRENTUSER = $_SESSION["session_username"];
 
@@ -31,10 +25,9 @@
     $data = $res->fetch_all(MYSQLI_ASSOC);
     $grabIngredientData->close();
 
-    /*grab data, slap it in a div, and make it JSON*/
-    echo "<div class='encodedJSON'>";
-    echo json_encode($data);
-    echo "</div>";
+    /*grab data, and make it JSON*/
+    $json = json_encode($data);
+    file_put_contents("JSON/ingredients.json", $json);
   }
 ?>
 <!doctype html>
@@ -64,27 +57,27 @@
   <!--NAVIGATION-->
   <nav class="navbar navbar-expand-lg navColor navHeight">
     <div class="container-fluid d-flex align-stretch">
-      <a class="navbar-brand order-2 h-75" href="./index.php">
-        <img src="IMG/cookies.png" style="width:75px">
+      <a class="navbar-brand order-2 h-75 squareAspect" href="./index.php">
+        <img src="IMG/cookies.png" class="logoHeight">
       </a>
-      <button class="navbar-toggler order-1 toggleButtonColor btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-        <span class="navbar-toggler-icon"></span>
+      <button class="navbar-toggler toggler order-1 hamburger" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar" aria-expanded="true">
+        <i class="bi-list hamburger"></i>
       </button>
-      <div class="collapse navbar-collapse order-3 flex-grow-1" id="collapsibleNavbar">
+      <div class="collapse navbar-collapse order-3 flex-grow-1 mobileNavBackground" id="collapsibleNavbar">
         <ul class="navbar-nav">
-          <li class="nav-item ps-4 pe-3">
+          <li class="nav-item ps-4 pe-3 mobileNavAdjust">
             <a class="nav-link" href="labels.php">
               <h2 class="navText text-dark">LABELS</h2>
             </a>
           </li>
-          <li class="nav-item ps-3 pe-4">
+          <li class="nav-item ps-3 pe-4 mobileNavAdjust">
             <a class="nav-link" href="ingredients.php">
               <h2 class="navText text-dark">INGREDIENTS</h2>
             </a>
           </li>
-          <li class="nav-item ps-5">
+          <li class="nav-item ps-5 mobileNavAdjust logoutbtn">
             <form action="./clearData.php" method="POST">
-              <button name="logout" type="submit" class="btn btn-dark"><h3>LOGOUT</h3></button>
+              <button name="logout" type="submit" class="btn btn-dark logout"><h3>LOGOUT</h3></button>
             </form>
           </li>
         </ul>
@@ -109,14 +102,14 @@
         </h1>
       </div>
 <!--SEARCH BOX AND ADD LABEL MODAL-->
-      <div class="d-flex flex-row mx-auto interFaceWidth">
-        <form class="modalForm w-100 d-flex flex-row" id="modalForm" action="./addIngredient.php" method="POST">
+      <div class="d-flex flex-row mx-auto interfaceWidth width93">
+        <form class="modalForm w-100 mb-3 d-flex flex-row" id="modalForm" action="./addIngredient.php" method="POST">
           <div class="me-2 searchBox">
             <input type="text" class="form-control border border-light searchBoxHeight" placeholder="SEARCH...">
           </div>
           <button type="button" class="ms-2 btn btn-dark addLabel" data-bs-toggle="modal" data-bs-target="#addLabelModal">ADD INGREDIENT [+]</button>
           <div class="modal fade" id="addLabelModal">
-            <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
               <div class="modal-content">
                 <div class="modal-header">
                   <h3 class="modal-title w-100 d-flex">
@@ -126,7 +119,7 @@
                 <div class="modal-body d-flex flex-column">
                   <label for="ingredientDescription">Contents</label>
                   <textarea class="form-control w-100 m-2 ingredientDescription" rows="20" name="new_ingredient_description" id="ingredientDescription" required></textarea>
-                  <div class="d-flex">
+                  <div class="d-flex flex-wrap">
                     <div class="form-check m-3">
                       <input class="form-check-input" type="checkbox" id="milkCheck" name="milkInput">
                       <label class="form-check-label" for="milkCheck">Milk</label>
@@ -160,7 +153,7 @@
                       <label class="form-check-label" for="soyCheck">Soy</label>
                     </div>
                     <div class="m-3 treeNutNameWidth">
-                      <label for="treeNutName">Tree Nut Name</label>
+                      <label for="treeNutName" class="treeNutName">Tree Nut Name</label>
                       <input id="treeNutName" class="form-check-input w-100 treeNutInputSize" type="text" name="treeNutName" value="">
                     </div>
                   </div>
@@ -175,14 +168,15 @@
       </form>
     </div>
 
-      <div class="interFaceWidth mx-auto mb-4 flex-grow-1 ingredientsArea tableHeight">
+      <div class="interfaceWidth mx-auto mb-4 flex-grow-1 ingredientsArea tableHeight border border-dark">
         <!--GRAB INGREDIENTS AND INFO, DISPLAY THEM HERE-->
         <table class="table table-striped table-responsive w-100 h-100 mb-0">
         <thead class="resultsHead">
           <tr>
             <th scope="col">Ingredient</th>
             <th scope="col">Allergens</th>
-            <th scope="col">Edit</th>
+            <th scope="col" class="text-center hideHeader">Edit</th>
+            <th scope="col" class="text-center hideHeader">Delete</th>
           </tr>
         </thead>
         <tbody class="resultsBody">

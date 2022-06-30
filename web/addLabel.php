@@ -1,23 +1,15 @@
 <?php
-
- session_start();
- if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+require 'db_config.php';
+session_start();
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
      header("Location: index.php");
      exit;
- }
- else {
+}
+else {
 
    $removeString = $_POST["removeString"];
    $appendString = $_POST["appendString"];
    $newTitle = $_POST["new_ingredient_title"];
-
-   /* config vars */
-   $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
-
-   $serverName = $url["host"];
-   $userName = $url["user"];
-   $pw = $url["pass"];
-   $db = substr($url["path"], 1);
 
    $CURRENTUSER = $_SESSION["session_username"];
 

@@ -30,22 +30,22 @@
 </head>
 <body>
   <!--NAVIGATION-->
-  <nav class="navbar navbar-expand-lg navColor navHeight">
-    <div class="container-fluid d-flex align-stretch">
+  <nav class="navbar navbar-expand-lg navColor navHeight w-100">
+    <div class="container-fluid d-flex align-stretch w-100">
       <a class="navbar-brand order-2 h-75" href="#">
         <img src="IMG/cookies.png" class="logoHeight">
       </a>
-      <button class="navbar-toggler order-1 toggleButtonColor btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-        <span class="navbar-toggler-icon"></span>
+      <button class="navbar-toggler toggler order-1 hamburger" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar" aria-expanded="true">
+        <i class="bi-list hamburger"></i>
       </button>
-      <div class="collapse navbar-collapse order-3 flex-grow-1" id="collapsibleNavbar">
+      <div class="collapse navbar-collapse order-3 flex-grow-1 mobileNavBackground" id="collapsibleNavbar">
         <ul class="navbar-nav">
-          <li class="nav-item ps-4 pe-3">
+          <li class="nav-item ps-4 pe-3 mobileNavAdjust">
             <a class="nav-link" href="index.php">
               <h2 class="navText text-dark">LABELS</h2>
             </a>
           </li>
-          <li class="nav-item ps-3 pe-4">
+          <li class="nav-item ps-3 pe-4 mobileNavAdjust">
             <a class="nav-link" href="ingredients.php">
               <h2 class="navText text-dark">INGREDIENTS</h2>
             </a>
@@ -71,7 +71,7 @@
             <input type="text" class="form-control skewEmailBox boxWidth align-items-center" id="email_input" placeholder="Enter Username..." name="username">
           </div>
           <div class="form-group mx-auto w-75 pwContainerHeight">
-            <label for="password_input" class="form-label loginButtonsText">PASSWORD</label>
+            <label for="password_input" class="form-label loginButtonsText passwordText">PASSWORD</label>
             <input type="password" class="form-control skewPwBox boxWidth" id="password_input" placeholder="Enter Password..." name="psw">
           </div>
         </div>
@@ -89,7 +89,7 @@
   <footer class="container-fluid footerBanner">
     <div class="container h-100 d-flex footerColor">
       <div class="h-100 addressBox">
-        <pre class="mt-3 mb-0">
+        <pre class="mt-3 mb-0 footerTextBox">
 PDX Cookie Co
 7919 SE Stark
 Portland, OR 97219

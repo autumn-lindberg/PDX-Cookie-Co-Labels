@@ -1,4 +1,5 @@
 <?php
+require 'db_config.php';
 session_start();
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("Location: index.php");
@@ -8,14 +9,6 @@ else {
   $ingredientID = $_POST["ingredient_id"];
   $ingredientTitle = $_POST["ingredient_title"];
   $ingredientDesc = $_POST["ingredient_description"];
-
-  /*config settings*/
-  $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
-
-  $serverName = $url["host"];
-  $userName = $url["user"];
-  $pw = $url["pass"];
-  $db = substr($url["path"], 1);
 
   $CURRENTUSER = $_SESSION["session_username"];
 
