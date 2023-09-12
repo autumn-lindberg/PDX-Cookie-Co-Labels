@@ -8,3 +8,5 @@ generateAccount.php
 editLabel.php
 editIngredient.php
 db_config.php
+ingredients.json
+labels.json
