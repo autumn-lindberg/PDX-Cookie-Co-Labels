@@ -1,0 +1,10 @@
+addIngredient.php
+addLabel.php
+clearData.php
+verify.php
+removeLabel.php
+removeIngredient.php
+generateAccount.php
+editLabel.php
+editIngredient.php
+db_config.php
