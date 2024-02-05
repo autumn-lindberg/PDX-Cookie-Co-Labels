@@ -51,12 +51,35 @@ else {
 
      /*add to database*/
      $addToDB = new mysqli($serverName, $userName, $pw, $db);
-     if($addToDB->connect_errno) {
-       echo "connection failed: " . $addToDB->connect_error . "<br>";
-     }
+
+
+$uri = "mysql://avnadmin:AVNS_N0yib95ZFegA-FDoJf2@pdx-label-co-db-pdx-label-co.a.aivencloud.com:18269/defaultdb?ssl-mode=REQUIRED";
+
+$fields = parse_url($uri);
+
+// build the DSN including SSL settings
+$conn = "mysql:";
+$conn .= "host=" . $fields["host"];
+$conn .= ";port=" . $fields["port"];;
+$conn .= ";dbname=defaultdb";
+$conn .= ";sslmode=verify-ca;sslrootcert=ca.pem";
+
+try {
+  $db = new PDO($conn, $fields["user"], $fields["pass"]);
+
      $updateStmt = "INSERT INTO " . $labelsTableName . " (label_id, label_name, id_list) VALUES (DEFAULT,\"" . $newTitle . "\",\"" . $appendString . "\")";
      $addToDB->query($updateStmt);
      $addToDB->close();
+} catch (Exception $e) {
+  echo "Error: " . $e->getMessage();
+}
+
+
+     /*
+     if($addToDB->connect_errno) {
+       echo "connection failed: " . $addToDB->connect_error . "<br>";
+     }
+     */
 
      /*redirect*/
      echo "<script> window.location.replace('./labels.php') </script>";

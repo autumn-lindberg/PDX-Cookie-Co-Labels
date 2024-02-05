@@ -92,7 +92,7 @@
         <pre class="mt-3 mb-0 footerTextBox">
 PDX Cookie Co
 7919 SE Stark
-Portland, OR 97219
+Portland, OR 9721
         </pre>
       </div>
       <div class="h-100 insta_link_box d-flex">
