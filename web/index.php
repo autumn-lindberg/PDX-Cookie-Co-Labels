@@ -68,7 +68,7 @@
         <div class="h-auto loginBox d-flex flex-column justify-content-center">
           <div class="form-group mt-4 mx-auto w-75 d-flex flex-column unContainerHeight mb-3">
             <label for="email_input" class="form-label loginButtonsText skewEmailText align-items-center pb-2">USERNAME</label>
-            <input type="text" class="form-control skewEmailBox boxWidth align-items-center" id="email_input" placeholder="Enter Username..." name="username">
+            <input type="text" class="form-control skewEmailBox boxWidth align-items-center" id="email_input" placeholder="Enter The Start of Your Email..." name="username">
           </div>
           <div class="form-group mx-auto w-75 pwContainerHeight">
             <label for="password_input" class="form-label loginButtonsText passwordText">PASSWORD</label>
