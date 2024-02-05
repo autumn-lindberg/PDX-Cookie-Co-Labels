@@ -4,14 +4,9 @@
 /* config vars */
 
 $serverName = getenv("HOST");
-$userName = getenv("USER");
+$userName = getenv("USERNAME");
 $pw = getenv("PASS");
 $db = getenv("DB");
-
-var_dump($serverName);
-var_dump($userName);
-var_dump($pw);
-var_dump($db);
 
 /*
 $env = parse_ini_file('../.env');
